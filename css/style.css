@@ -1,0 +1,83 @@
+@font-face{font-family: LargePixelFont; src: url('../fonts/pixelFont.otf');}
+@font-face{font-family: LightPixelFont; src: url('../fonts/hellovetica.ttf');}
+@font-face{font-family: PixelFont; src: url('../fonts/Minecraft.otf');}
+
+body 
+{
+	color: white;
+	font-size: 25px;
+	font-family: LightPixelFont;
+	text-align: center;
+}
+html
+{
+	background-image: url('../images/bg.png');
+	background-repeat: no-repeat;
+    background-size: cover
+}
+	
+
+h1
+{
+	color: white;
+	font-size: 50px;
+	font-family: LargePixelFont;
+	text-align: center;
+}
+button.link 
+{
+	background:none;
+	border:none;
+	color: white;
+	font-size: 25px;
+	font-family: PixelFont;
+	text-align: center;
+	transition: all .1s ease-in-out;
+}
+button.linkh
+{
+	margin: auto;
+	background:none;
+	border:none;
+	color: white;
+	font-size: 50px;
+	font-family: LargePixelFont;
+	text-align: center;
+	transition: all .4s ease-in-out;
+}
+.itemBox:hover
+{
+	transform: scale(1.1);
+}
+button.link:hover
+{
+	color: orange;
+	transform: scale(1.1);
+}
+button.linkh:hover
+{
+	transform: scale(1.1);
+}
+.flex-grid
+{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+.col 
+{
+	display:flex;
+    align-items: center;
+	padding: 20px;
+}
+.bar {
+	background-color: white;
+	margin: auto;
+}
+.itemBox{
+	margin-top: 10;
+	margin-left: 10;
+	margin-right: 10;
+	margin-bottom: 10;
+	transition: all 0.5s ease-in-out;
+}
