@@ -5,7 +5,7 @@
 body 
 {
 	color: white;
-	font-size: 25px;
+	font-size: 18px;
 	font-family: LightPixelFont;
 	text-align: center;
 }
@@ -27,7 +27,7 @@ button.link
 	background:none;
 	border:none;
 	color: white;
-	font-size: 10px;
+	font-size: 25px;
 	font-family: PixelFont;
 	text-align: center;
 	transition: all .1s ease-in-out;
