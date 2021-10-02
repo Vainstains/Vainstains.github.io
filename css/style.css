@@ -15,8 +15,6 @@ html
 	background-repeat: no-repeat;
     background-size: cover
 }
-	
-
 h1
 {
 	color: white;
@@ -29,7 +27,7 @@ button.link
 	background:none;
 	border:none;
 	color: white;
-	font-size: 25px;
+	font-size: 10px;
 	font-family: PixelFont;
 	text-align: center;
 	transition: all .1s ease-in-out;
