@@ -2,12 +2,12 @@
 @font-face{font-family: LightPixelFont; src: url('../fonts/hellovetica.ttf');}
 @font-face{font-family: PixelFont; src: url('../fonts/Minecraft.otf');}
 
-body 
-{
+body {
 	color: white;
 	font-size: 25px;
 	font-family: LightPixelFont;
 	text-align: center;
+	text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 2px 0px 0 #000, -2px 0px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000;
 }
 
 html
@@ -16,33 +16,33 @@ html
 	background-repeat: no-repeat;
     background-size: cover
 }
-h1
-{
+h1 {
 	color: white;
 	font-size: 50px;
 	font-family: LargePixelFont;
 	text-align: center;
+	text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
-button.link 
-{
-	background:none;
-	border:none;
+button.link {
+	background: none;
+	border: none;
 	color: rgb(89, 145, 255);
 	font-size: 25px;
 	font-family: PixelFont;
 	text-align: center;
-	transition: all .1s ease-in-out;
+	transition: all .4s cubic-bezier(0.28, 2.4, 0.37, 0.79);
+	text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
-button.linkh
-{
+button.linkh {
 	margin: auto;
-	background:none;
-	border:none;
+	background: none;
+	border: none;
 	color: white;
 	font-size: 50px;
 	font-family: LargePixelFont;
 	text-align: center;
-	transition: all .4s ease-in-out;
+	transition: all .4s cubic-bezier(0.28, 2.4, 0.37, 0.79);
+	text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 .itemBox:hover
 {
@@ -73,10 +73,10 @@ button.linkh:hover
 	background-color: white;
 	margin: auto;
 }
-.itemBox{
+.itemBox {
 	margin-top: 10;
 	margin-left: 10;
 	margin-right: 10;
 	margin-bottom: 10;
-	transition: all 0.5s ease-in-out;
+	transition: all 0.5s cubic-bezier(0.28, 2.4, 0.37, 0.79);
 }
