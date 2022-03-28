@@ -9,14 +9,6 @@ body {
 	text-align: center;
 	text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 2px 0px 0 #000, -2px 0px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000;
 }
-
-html
-{
-	/*background-image: url('../images/bg1.png');*/
-	background-color: #17172f;
-	background-repeat: no-repeat;
-    background-size: cover
-}
 h1 {
 	color: white;
 	font-size: 50px;
