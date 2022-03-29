@@ -4,8 +4,9 @@
     "\\css",
     "\\fonts",
     "\\images",
-    "\\pages"
+    "\\pages",
+    "\\pages\\cpstester"
   ],
-  "SelectedNode": "\\css\\style.css",
+  "SelectedNode": "\\pages\\programs.html",
   "PreviewInSolutionExplorer": false
 }
