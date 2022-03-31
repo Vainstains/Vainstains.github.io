@@ -4,9 +4,12 @@
     "\\css",
     "\\fonts",
     "\\images",
+    "\\JS",
     "\\pages",
-    "\\pages\\cpstester"
+    "\\pages\\cpstester",
+    "\\Roboto_Mono",
+    "\\Roboto_Mono\\static"
   ],
-  "SelectedNode": "\\pages\\programs.html",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }
