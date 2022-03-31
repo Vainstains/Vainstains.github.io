@@ -13,7 +13,7 @@ body {
 html
 {
 	/*background-image: url('../images/bg1.png');*/
-	background-color: #17172f;
+	background-color: #121217;
 	background-repeat: no-repeat;
     background-size: cover
 }
@@ -67,10 +67,14 @@ button.linkh:hover
 {
 	display:flex;
     align-items: center;
-	padding: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+	background: #191925;
+
 }
 .bar {
-	background-color: #3C3C5A;
+	background-color: #3C3C4A;
 	margin: auto;
 }
 .itemBox {

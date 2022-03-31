@@ -1,113 +1,98 @@
-var start, clicks, highest = 0;
-		var span = document.getElementById("CPStext");
-		var going = false;
-		setInterval(doTickLoop, 125);
 
-		clicks = -1;
-			    start=performance.now();
-			    ticks=0;
-			    span = document.getElementById("CPStext");
-				times = new Array(0);
-				going = true;
+function drawCircle(ctx, x, y, radius, fill, stroke, strokeWidth) {
+  ctx.beginPath()
+  ctx.arc(x, y, radius, 0, 2 * Math.PI, false)
+  if (fill) {
+    ctx.fillStyle = fill
+    ctx.fill()
+  }
+  if (stroke) {
+    ctx.lineWidth = strokeWidth
+    ctx.strokeStyle = stroke
+    ctx.stroke()
+  }
+}
+
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+var x = new Array(0);
+var y = new Array(0);
+for(let i = 0; i < 3; i++)
+    {
+x.push(getRandomArbitrary(50,550));
+y.push(getRandomArbitrary(50,250));
+}
+
+var acc = 1;
+
+setInterval(doTickLoop, 33);
+
+function processClick(mx,my){
+    for(let i = 0; i < x.length; i++)
+    {
+        let x1=mx-x[i];
+        let y1=my-y[i];
+        let dist = Math.sqrt((x1*x1)+(y1*y1));
+        if(dist<23)
+        {
+            x[i]=getRandomArbitrary(50,550);
+            y[i]=getRandomArbitrary(50,250);
+            acc = (acc+acc+(1-(Math.max(dist-2,0)/20)))/3;
+            document.getElementById("Acc").textContent=(acc*100).toFixed(2)+"% Accuracy";
+        }
+    }
+}
+
+var canvas;
+var a = false
+
+  function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: evt.clientX - rect.left,
+      y: evt.clientY - rect.top
+    };
+  }
+  
 
 		function beep()
 		{
-			clicks++;
+			
 		}
-		var ticks = 0, seconds = 5;
-		var times;
-		var time, rltime = 0, rt1 = 0;
 		function doTickLoop()
 		{
-		    if(going)
-		    {
-
-			    if(span == null)
-				{
-					span = document.getElementById("CPStext");
-				}
-
-		        time = 1/(((performance.now()-start)/1000)/clicks);
-				rt1 += (time-rt1)/2
-				rltime += (rt1-rltime)/2;
-				
-				times.push(rltime);
-			    if(rltime>highest)
-				{
-				    highest=rltime;
-				}
-		        start=performance.now();
-		        span.textContent = rltime.toFixed(2) + " clicks per second";
-				
-				
-				ticks++;
-				clicks=0;
-		    }
 			draw();
-			
+			if(!a){
+                canvas.addEventListener('mousedown', function(evt) {
+    var mousePos = getMousePos(canvas, evt);
+    processClick(mousePos.x, mousePos.y);
+  }, false);
+  a=true;
+            }
 		}
 		function draw() 
 		{
+
 		    //draw backcolor
-            var canvas = document.getElementById("Graph");
+            canvas = document.getElementById("Graph");
             if (canvas.getContext) {
             var ctx = canvas.getContext("2d");
 			ctx.fillStyle = 'rgba(10, 10, 20, 1)';
-            ctx.fillRect(0, 0, 400, 250);
-			var i1=1;
-			var i2=times.length;
-			if(times.length>100)
+            ctx.fillRect(0, 0, 600, 300);
+			for(let i = 0; i < x.length; i++)
 			{
-			    i1=times.length-100;
-				i2=100;
+			    drawCircle(ctx, x[i], y[i], 20, 'rgba(190, 20, 20, 0)','rgba(190, 20, 20, 1)', 2);
+			    drawCircle(ctx, x[i], y[i], 3, 'rgba(190, 20, 20, 0)','rgba(20, 190, 20, 1)', 2);
+
 			}
-			var i3 = 1;
-			//draw graph Lines
-			ctx.strokeStyle = 'rgba(70, 70, 100, 1)';
-            ctx.beginPath();
-            ctx.moveTo(60,50);
-            ctx.lineTo(400,50);
-            ctx.stroke();
 
-			ctx.beginPath();
-            ctx.moveTo(60,100);
-            ctx.lineTo(400,100);
-            ctx.stroke();
-
-			ctx.beginPath();
-            ctx.moveTo(60,150);
-            ctx.lineTo(400,150);
-            ctx.stroke();
-			//draw graph numbers
-			ctx.fillStyle = 'rgba(70, 70, 100, 1)';
-			ctx.font = "15px Lucida Console";
-            ctx.fillText(highest.toFixed(1), 20, 11);
-
-			ctx.fillStyle = 'rgba(70, 70, 100, 1)';
-			ctx.font = "15px Lucida Console";
-            ctx.fillText((highest*0.75).toFixed(1), 20, 55.5);
-
-			ctx.fillStyle = 'rgba(70, 70, 100, 1)';
-			ctx.font = "15px Lucida Console";
-            ctx.fillText((highest*0.5).toFixed(1), 20, 105.5);
-
-			ctx.fillStyle = 'rgba(70, 70, 100, 1)';
-			ctx.font = "15px Lucida Console";
-            ctx.fillText((highest*0.25).toFixed(1), 20, 155.5);
-
-			ctx.fillStyle = 'rgba(70, 70, 100, 1)';
-			ctx.font = "15px Lucida Console";
-            ctx.fillText("0.0", 20, 199);
-
-			//draw graph itself
-			for(let i = i1; i < times.length; i++)
-			{
-			    ctx.strokeStyle = 'rgba(150, 150, 200, 1)';
-                ctx.beginPath();
-                ctx.moveTo((i3-1)*(340/i2)+60, 200-(times[i-1]*(200/highest)));
-                ctx.lineTo(i3*(340/i2)+60, 200-(times[i]*(200/highest)));
-                ctx.stroke();
-				i3++
-			}
+			var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+            var radius = 70;
+            
+            
         }
 }

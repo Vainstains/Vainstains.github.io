@@ -2,14 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\css",
+    "\\downloads",
     "\\fonts",
     "\\images",
     "\\JS",
-    "\\pages",
+    "\\pages\\aimtester",
     "\\pages\\cpstester",
-    "\\Roboto_Mono",
     "\\Roboto_Mono\\static"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\downloads\\Swing Racer 0.4.3.zip",
   "PreviewInSolutionExplorer": false
 }
