@@ -1,6 +1,6 @@
 @font-face{font-family: LargePixelFont; src: url('../fonts/pixelFont.otf');}
 @font-face{font-family: LightPixelFont; src: url('../Roboto_Mono/static/RobotoMono-Light.ttf');}
-@font-face{font-family: PixelFont; src: url('../Roboto_Mono/static/RobotoMono-Medium.ttf');}
+@font-face{font-family: PixelFont; src: url('../Roboto_Mono/static/RobotoMono-Bold.ttf');}
 
 body {
 	color: white;
