@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript">
+
+			async function getTable(pubKey)
+			{
+				let response = await fetch("http://dreamlo.com/lb/"+pubKey+"/json").then((data) => data.json());
+				let dat = response.dreamlo.leaderboard.entry;
+				console.log(dat);
+				let o = "<table>"
+				o += "<tr><td>#</td><td>Player</td><td>sec.ms</td></tr>"
+				o += "<tr><td></td><td></td><td></td></tr>"
+				for(let i = dat.length-1; i >= 0; i--)
+				{
+					o += "<tr><td>"+(dat.length-i)+"</td><td>"+dat[i].name+"</td><td>"+(dat[i].score/1000)+"</td></tr>"
+				}
+				o += "</table>"
+				return o;
+			}
+			function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+			async function init()
+			{
+				pubCodes = 
+				[
+					"626c78158f40bbb378ddfadf",
+					"626ca8c08f40bbb378de4bd9",
+					"626ca9428f40bbb378de4cfa",
+					"626ca9568f40bbb378de4d25",
+					"626ca97a8f40bbb378de4d75",
+					"626ca9b48f40bbb378de4df2",
+					"626efab88f40bbb378e2d198",
+					"63290a958f40bb0fe8d1a38a"
+				];
+				for(let i = 0; i < pubCodes.length; i++)
+				{
+					document.getElementById("demo").innerHTML += "<p>Level "+(i+1)+"</p>"+(await getTable(pubCodes[i]));
+					sleep(500);
+				}
+				document.getElementById("load").innerHTML = "";
+			}
+			window.onload = init;
+		</script>
+		<style>
+			html
+			{
+				background-color: #223;
+				font-family: arial, sans-serif;
+				font-size: 14px;
+				color: #9090ad;
+			}
+			tr:nth-child(even) 
+			{
+				background-color: #2a2a3a;
+			}
+			tr:nth-child(3)
+			{
+				color: #ffc524;
+			}
+			tr:nth-child(4) 
+			{
+				color: #bfd1d9;
+			}
+			tr:nth-child(5) 
+			{
+				color: #c76530;
+			}
+			td
+			{
+				padding-left: 6px;
+				padding-right: 6px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+			p
+			{
+				font-size: 20px;
+				border-bottom: 5px solid #334;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo"></div>
+		<p id="load">Loading...</p>
+	</body>
+</html>
