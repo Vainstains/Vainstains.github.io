@@ -7,3 +7,4 @@ function addCode()
    element.appendChild(tag);
 }
 window.onload = addCode;
+//AAHHHHH
