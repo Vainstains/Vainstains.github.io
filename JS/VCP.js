@@ -6,4 +6,4 @@ function addCode()
    var element = document.getElementById("bottomText");
    element.appendChild(tag);
 }
-addCode();
+window.onload = addCode;
